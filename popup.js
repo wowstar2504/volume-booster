@@ -123,5 +123,6 @@ document.getElementById('supportLink').addEventListener('click', (e) => {
 
 document.getElementById('donateLink').addEventListener('click', (e) => {
   e.preventDefault();
-  chrome.tabs.create({ url: 'https://www.hostler.lol/donate.html?ref=volume-booster' });
+  chrome.tabs.create({ url: 'https://github.com/sponsors/wowstar2504' });
+
 });
