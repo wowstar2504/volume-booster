@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Volume Booster",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Boost audio volume up to 650% on any webpage",
   "permissions": ["activeTab", "storage", "scripting"],
   "action": {
