@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      width: 320px;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      transition: background 0.3s ease;
+    }
+    
+    body.dark-mode {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+    
+    .tabs {
+      display: flex;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 8px 8px 0 8px;
+    }
+    
+    .tab {
+      flex: 1;
+      padding: 12px;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 8px 8px 0 0;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      background: transparent;
+      opacity: 0.7;
+    }
+    
+    .tab:hover {
+      opacity: 0.9;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .tab.active {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      opacity: 1;
+    }
+    
+    .tab-content {
+      display: none;
+      padding: 24px;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .icon {
+      font-size: 48px;
+      margin-bottom: 8px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .volume-display {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .volume-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
+    
+    .volume-value {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    
+    .slider-container {
+      margin-bottom: 20px;
+    }
+    
+    .slider-wrapper {
+      position: relative;
+      padding: 10px 0;
+    }
+    
+    .slider {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.3);
+      outline: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .slider:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+    
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: white;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      transition: all 0.2s ease;
+    }
+    
+    .slider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    
+    .slider::-webkit-slider-thumb:active {
+      transform: scale(1.1);
+    }
+    
+    .slider::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: white;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      transition: all 0.2s ease;
+    }
+    
+    .slider::-moz-range-thumb:hover {
+      transform: scale(1.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    
+    .slider-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 11px;
+      opacity: 0.8;
+    }
+    
+    .reset-btn {
+      width: 100%;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .reset-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    
+    .reset-btn:active {
+      transform: translateY(0);
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 11px;
+      opacity: 0.7;
+    }
+    
+    .settings-group {
+      margin-bottom: 20px;
+    }
+    
+    .settings-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    
+    .settings-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+    }
+    
+    .settings-icon {
+      font-size: 24px;
+    }
+    
+    .toggle-switch {
+      position: relative;
+      width: 50px;
+      height: 26px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 13px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .toggle-switch.active {
+      background: #4CAF50;
+    }
+    
+    .toggle-slider {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .toggle-switch.active .toggle-slider {
+      transform: translateX(24px);
+    }
+    
+    .link-section {
+      text-align: center;
+    }
+    
+    .link-btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      margin-bottom: 16px;
+    }
+    
+    .link-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    
+    .link-btn:active {
+      transform: translateY(0);
+    }
+    
+    .link-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+    
+    .link-text {
+      font-size: 13px;
+      opacity: 0.9;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="tabs">
+    <div class="tab active" data-tab="volume">Volume</div>
+    <div class="tab" data-tab="settings">Settings</div>
+    <div class="tab" data-tab="support">Support</div>
+    <div class="tab" data-tab="donate">Donate</div>
+  </div>
+  
+  <div class="tab-content active" id="volume-tab">
+    <div class="header">
+      <div class="icon">🔊</div>
+      <h1>Volume Booster</h1>
+    </div>
+    
+    <div class="volume-display">
+      <div class="volume-label">Current Volume</div>
+      <div class="volume-value" id="volumeValue">100%</div>
+    </div>
+    
+    <div class="slider-container">
+      <div class="slider-wrapper">
+        <input type="range" min="100" max="650" value="100" step="10" class="slider" id="volumeSlider">
+      </div>
+      <div class="slider-labels">
+        <span>100%</span>
+        <span>650%</span>
+      </div>
+    </div>
+    
+    <button class="reset-btn" id="resetBtn">↻ Reset to Normal</button>
+    
+    <div class="footer">
+      Move slider to boost volume (10% increments)
+    </div>
+  </div>
+  
+  <div class="tab-content" id="settings-tab">
+    <div class="header">
+      <div class="icon">⚙️</div>
+      <h1>Settings</h1>
+    </div>
+    
+    <div class="settings-group">
+      <div class="settings-item">
+        <div class="settings-label">
+          <span class="settings-icon">🌙</span>
+          <span>Dark Mode</span>
+        </div>
+        <div class="toggle-switch" id="darkModeToggle">
+          <div class="toggle-slider"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      Customize your experience
+    </div>
+  </div>
+  
+  <div class="tab-content" id="support-tab">
+    <div class="link-section">
+      <div class="link-icon">💬</div>
+      <h1 style="margin-bottom: 20px;">Get Support</h1>
+      <a href="https://github.com/wowstar2504/volume-booster/issues" class="link-btn" id="supportLink" target="_blank">
+        Open Support Page
+      </a>
+      <div class="link-text">
+        Have questions or found a bug?<br>
+        We're here to help!
+      </div>
+    </div>
+  </div>
+  
+  <div class="tab-content" id="donate-tab">
+    <div class="link-section">
+      <div class="link-icon">❤️</div>
+      <h1 style="margin-bottom: 20px;">Support Development</h1>
+      <a href="https://github.com/sponsors/wowstar2504" class="link-btn" id="donateLink" target="_blank">
+        Donate Now
+      </a>
+      <div class="link-text">
+        Enjoying Volume Booster?<br>
+        Consider supporting the development!
+      </div>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+
+</html>

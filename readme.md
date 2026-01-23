@@ -1,19 +1,18 @@
 # 🔊 Volume Booster
 
 > [!CAUTION]
-> This extension is **not** on the Chrome Web Store, so it may give you warnings. Thank you for your understanding.
+> This extension is **not** on the Chrome/Edge/Opera/Firefox Web Store, so it may give you warnings. Thank you for your understanding.
 
-A powerful Chrome extension that boosts audio volume up to 650% on any webpage!
+A powerful Chromium and Firefox extension that boosts audio volume up to 650% on any webpage!
 
-![Volume Booster](https://img.shields.io/badge/version-1.1-blue.svg)
+![Volume Booster](https://img.shields.io/badge/version-1.2-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-## ⚠️ To do
-- [x] Add Chrome support.
-- [ ] Add Chromium support.
-- [ ] Add Edge support.
-- [ ] Add Opera support.
+## ⚠️ To-do
+- [x] Add Chromium support.
 - [x] Add Firefox support.
+- [ ] Add Firefox Mobile support.
+- [ ] Add Safari macOS/iOS support.
 
 
 ## ✨ Features
@@ -28,16 +27,55 @@ A powerful Chrome extension that boosts audio volume up to 650% on any webpage!
 
 ## 📦 Installation
 
-### Method 1: Install from Source
+### Method 1: Install from releases
+
+1. **Download from the releases page**
+   
+   [Link here](https://github.com/wowstar2504/volume-booster/releases/)
+
+2. **Open your browser and go to Extensons / Addons**
+
+   <details>
+      <summary>Click here</summary>
+
+         If you are using; Google Chromium, Google Chrome, Microsoft Edge, Opera/Opera GX, go to "chrome://extensions".
+         If you are using Mozilla Firefox, go to "about:addons".
+
+   </details>
+
+3. **Enable Developer Mode**
+   - Toggle the "Developer mode" switch in the top right corner
+
+4. **Unzip the extension**
+   - Find the file "Chromium_vX.X.zip/Firefox_vX.X.zip, right click, and choose ``Extract All``
+
+5. **Load the extension**
+   - Click "Load unpacked"
+   - Find the `Chromium/Firefox` folder and click it.
+
+6. **Pin the extension** (optional)
+   - Click the puzzle piece icon in Browser toolbar
+   - Find "Volume Booster" and click the pin icon
+
+7. **That's it! You're done.**
+    - Now you can use the extension!
+
+
+### Method 2: Install from Source
 
 1. **Download or clone this repository**
    ```bash
    git clone https://github.com/wowstar2504/volume-booster.git
    ```
 
-2. **Open Chrome and go to Extensions**
-   - Navigate to ``chrome://extensions/``.
-   - Or click the three dots menu → More tools → Extensions
+2. **Open your browser and go to Extensions**
+   <details>
+      <summary>Click here</summary>
+
+         If you are using; Google Chromium, Google Chrome, Microsoft Edge, Opera/Opera GX, go to "chrome://extensions".
+         If you are using Mozilla Firefox, go to "about:addons".
+
+</details>
 
 3. **Enable Developer Mode**
    - Toggle the "Developer mode" switch in the top right corner
@@ -47,7 +85,7 @@ A powerful Chrome extension that boosts audio volume up to 650% on any webpage!
    - Select the `volume-booster` folder
 
 5. **Pin the extension** (optional)
-   - Click the puzzle piece icon in Chrome toolbar
+   - Click the puzzle piece icon in Browser toolbar
    - Find "Volume Booster" and click the pin icon
 
 6. **That's it! You're done.**
