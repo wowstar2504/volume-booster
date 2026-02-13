@@ -1,7 +1,7 @@
 # 🔊 Volume Booster
 
 > [!CAUTION]
-> This extension is **not** on the Chrome/Edge/Opera/Firefox Web Store, so it may give you warnings. Thank you for your understanding.
+> This extension is **not** on the Chrome Web Store, so it may give you warnings. Thank you for your understanding.
 
 A powerful Chromium and Firefox extension that boosts audio volume up to 650% on any webpage!
 
