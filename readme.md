@@ -5,7 +5,7 @@
 
 A powerful Chromium and Firefox extension that boosts audio volume up to 650% on any webpage!
 
-![Volume Booster](https://img.shields.io/badge/version-1.2-blue.svg)
+![Volume Booster](https://img.shields.io/badge/version-1.3-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 ## ⚠️ To-do

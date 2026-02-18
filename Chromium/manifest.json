@@ -1,9 +1,12 @@
 {
   "manifest_version": 3,
   "name": "Volume Booster",
-  "version": "1.2",
+  "version": "1.3",
   "description": "Boost audio volume up to 650% on any webpage",
-  "permissions": ["activeTab", "storage", "scripting"],
+  "permissions": ["activeTab", "storage", "scripting", "declarativeNetRequest"],
+  "host_permissions": [
+    "https://flavortown.hackclub.com/*"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -20,6 +23,15 @@
       "all_frames": true
     }
   ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "flavortown_rules",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",

@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                {
+                    "header": "X-Flavortown-Ext-12862",
+                    "operation": "set",
+                    "value": "true"
+                }
+            ]
+        },
+        "condition": {
+            "requestDomains": [
+                "flavortown.hackclub.com"
+            ],
+            "resourceTypes": [
+                "main_frame",
+                "sub_frame",
+                "xmlhttprequest",
+                "other"
+            ]
+        }
+    }
+]
