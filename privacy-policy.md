@@ -67,4 +67,4 @@ If this Privacy Policy changes, updates will be reflected in the Chrome Web Stor
 
 ## 6. Contact
 
-If you have any questions about this Privacy Policy, you may contact me at [hi@22291111.xyz](hi@22291111.xyz).
+If you have any questions about this Privacy Policy, you may contact me at [wowstar2504@proton.me](wowstar2504@proton.me).
